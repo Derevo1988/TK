@@ -55,7 +55,7 @@ class ProfileMonitor:
             response = requests.get(URL_TO_MONITOR, headers=headers)
             response.raise_for_status()
             
-            soup = BeautifulSoup(response.text, 'lxml')
+            soup = BeautifulSoup(response.text, 'html.parser')
             profiles = []
             
             # Ищем контейнеры с профилями актеров
@@ -248,4 +248,5 @@ def main():
     application.run_polling()
 
 if __name__ == '__main__':
+
     main()
